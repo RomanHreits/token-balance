@@ -15,13 +15,10 @@ export class AppService {
         const tokenInst = new web3.eth.Contract(abi, token);
         let result =  await tokenInst.methods.balanceOf(wallet).call()
             .then(function (balance) {
-                console.log(`Баланс: ${balance}`);
                 return balance;
             }).catch(function (e) {
                 console.log(e);
             });
-        console.log(result)
-        console.log(typeof result)
         return result;
     }
 }
